@@ -3,7 +3,7 @@ name: CI/CD Pipeline for Node App
 on:
   push:
     branches:
-      - main
+      - beta
   workflow_dispatch:
 
 jobs:
