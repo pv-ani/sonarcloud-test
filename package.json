@@ -16,6 +16,20 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
+    "sonar-scan": "sonar-scanner",
+    "pre-commit": "lint-staged ",
+    "prettier:check": "prettier --check --config .prettierrc \"**/*.js\"",
+    "prettier:write": "prettier --write --config .prettierrc \"**/*.js\"",
+    "lint:check": "eslint --config .eslintrc.json \"**/*.js\"",
+    "lint:fix": "eslint --fix --config .eslintrc.json \"**/*.js\"",
+    "test": "npm run test:e2e && npm run test:unit &&  npm run coverage ",
+    "test:unit": "cross-env NODE_ENV=testing jest --testTimeout=10000",
+    "test:unit:watch": "cross-env NODE_ENV=testing jest --testTimeout=10000 --watch",
+    "test:e2e": "cross-env NODE_OPTIONS=--experimental-vm-modules NODE_ENV=testing  jest --testTimeout=15000 --config jest.e2e.config.js",
+    "test:e2e:watch": "cross-env NODE_OPTIONS=--experimental-vm-modules NODE_ENV=testing jest --testTimeout=10000 --config jest.e2e.config.js --watch",
+    "coverage:merge": "istanbul-merge --out coverage/merged/coverage-final.json ./coverage/unit/coverage-final.json ./coverage/e2e/coverage-final.json",
+    "coverage:merge-report": "nyc report --reporter=lcov --reporter=text --reporter=json --temp-dir=./coverage/merged --report-dir=./coverage/merged",
+    "coverage": "npm run coverage:merge && npm run coverage:merge-report"
   },
   "eslintConfig": {
     "extends": [
