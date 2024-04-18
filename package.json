@@ -28,7 +28,6 @@
     "coverage:clean": "rm -rf .nyc_output && rm -rf coverage",
     "coverage:merge": "mkdir -p coverage/merged && istanbul-merge --output coverage/merged/coverage-final.json ./coverage/unit/coverage-final.json ./coverage/e2e/coverage-final.json",
     "coverage:merge-report": "nyc report --reporter=lcov --reporter=text --reporter=json --temp-dir=./coverage/merged --report-dir=./coverage/merged",
-    "postinstall": "node setup.js",
     "pre-commit": "npm run compareEnv && npm run prettierCheck && npm run lintCheck"
   },
   "nyc": {
