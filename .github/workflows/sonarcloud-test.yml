@@ -7,6 +7,7 @@ on:
   pull_request:
     branches:
       - beta
+      - main
       
   workflow_dispatch:
 
@@ -23,11 +24,12 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '14'
+          node-version: '20'
 
-      # - name: Install Dependencies
-      #   run: npm install
-
+      - name: Install Dependencies
+        run: | 
+          cp .env.example .env
+          npm ci
 
       - name: SonarCloud Scan
         uses: sonarsource/sonarcloud-github-action@master
@@ -38,3 +40,12 @@ jobs:
           args: >
             -Dsonar.organization=pv-ani
             -Dsonar.projectKey=pv-ani_sonarcloud-test
+           
+      - name: Run unit tests
+        run: npm run test:unit
+
+      - name: Run lint
+        run: npm run lintCheck
+
+      - name: Run prettier
+        run: npm run prettierCheck
