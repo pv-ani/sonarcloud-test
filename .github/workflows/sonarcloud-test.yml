@@ -27,7 +27,7 @@ jobs:
       - name: Install Dependencies
         run: | 
           cp .env.example .env
-          npm ci
+          npm install --legacy-peer-deps
 
       - name: SonarCloud Scan
         uses: sonarsource/sonarcloud-github-action@master
