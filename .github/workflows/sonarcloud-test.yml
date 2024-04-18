@@ -9,10 +9,8 @@ on:
       - beta
       - main
       
-  workflow_dispatch:
-
 jobs:
-  SonarCloudScan:
+  securityCheck:
     runs-on: ubuntu-latest
 
     steps:
