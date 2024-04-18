@@ -81,7 +81,7 @@ jobs:
           npm install --legacy-peer-deps
           
       - name: Run lint
-        run: npm run lintCheck
+        run: npm run lint
         
   prettierCheck:
     runs-on: ubuntu-latest
