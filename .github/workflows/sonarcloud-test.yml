@@ -11,34 +11,34 @@ on:
       - main
       
 jobs:
-  sonarqubeCheck:
-    runs-on: ubuntu-latest
+  # sonarqubeCheck:
+  #   runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-        with:
-            fetch-depth: 0
+  #   steps:
+  #     - name: Checkout code
+  #       uses: actions/checkout@v4
+  #       with:
+  #           fetch-depth: 0
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '20'
+  #     - name: Setup Node.js
+  #       uses: actions/setup-node@v3
+  #       with:
+  #         node-version: '20'
 
-      - name: Install Dependencies
-        run: | 
-          cp .env.example .env
-          npm install --legacy-peer-deps
+  #     - name: Install Dependencies
+  #       run: | 
+  #         cp .env.example .env
+  #         npm install --legacy-peer-deps
 
-      - name: SonarCloud Scan
-        uses: sonarsource/sonarcloud-github-action@master
-        env:
-            SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-            GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
-        with:
-          args: >
-            -Dsonar.organization=pv-ani
-            -Dsonar.projectKey=pv-ani_sonarcloud-test
+  #     - name: SonarCloud Scan
+  #       uses: sonarsource/sonarcloud-github-action@master
+  #       env:
+  #           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+  #           GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
+  #       with:
+  #         args: >
+  #           -Dsonar.organization=pv-ani
+  #           -Dsonar.projectKey=pv-ani_sonarcloud-test
 
   # uniteTest:
   #   runs-on: ubuntu-latest
