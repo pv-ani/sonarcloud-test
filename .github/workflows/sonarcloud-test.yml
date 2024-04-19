@@ -11,7 +11,7 @@ on:
       - main
       
 jobs:
-  # sonarqubeCheck:
+    # sonarqubeCheck:
   #   runs-on: ubuntu-latest
 
   #   steps:
@@ -33,12 +33,12 @@ jobs:
   #     - name: SonarCloud Scan
   #       uses: sonarsource/sonarcloud-github-action@master
   #       env:
-  #           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-  #           GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
+  #           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}   # Create sonar token in sonarcloud and store in github secrets.
+  #           GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}    # Create github classic token and store in github secrets.
   #       with:
   #         args: >
-  #           -Dsonar.organization=pv-ani
-  #           -Dsonar.projectKey=pv-ani_sonarcloud-test
+  #           -Dsonar.organization=pv-ani # Replace organization name whcih will be in sonarcloud.
+  #           -Dsonar.projectKey=pv-ani_sonarcloud-test  # Replace Project key which will be in sonarcloud.
 
   # uniteTest:
   #   runs-on: ubuntu-latest
