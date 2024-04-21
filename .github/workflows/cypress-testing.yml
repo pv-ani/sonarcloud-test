@@ -59,4 +59,4 @@ jobs:
       if: always()
       with:
           github_token: ${{ secrets.GH_TOKEN }}
-          publish_dir: /home/runner/work/sonarcloud-test/sonarcloud-test/mochawesome-report/*.html
+          publish_dir: /home/runner/work/sonarcloud-test/sonarcloud-test/mochawesome-report/mochawesome.html
