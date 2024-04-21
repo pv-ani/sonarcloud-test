@@ -66,6 +66,7 @@
     "bcrypt": "^5.0.1",
     "body-parser": "^1.20.0",
     "compression": "^1.7.4",
+    "cypress": "^13.8.0",
     "cors": "^2.8.5",
     "date-fns": "^2.30.0",
     "dotenv-safe": "^8.2.0",
