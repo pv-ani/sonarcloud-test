@@ -1,0 +1,104 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2024-04-21T18:32:05.523Z",
+    "end": "2024-04-21T18:32:06.347Z",
+    "duration": 824,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "5e202113-d219-48a1-a199-9285d9acfb1f",
+      "title": "",
+      "fullFile": "cypress/e2e/test1.cy.js",
+      "file": "cypress/e2e/test1.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "45eb3afa-c7fb-4118-afc9-b0704620ae82",
+          "title": "template spec",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should login successfully with valid credentials",
+              "fullTitle": "template spec should login successfully with valid credentials",
+              "timedOut": null,
+              "duration": 750,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(`${URL}`);\nloginPage();",
+              "err": {
+                "message": "CypressError: `cy.visit()` failed trying to load:\n\nhttp://localhost:3000/\n\nWe attempted to make an http request to this URL but the request failed without a response.\n\nWe received this error at the network level:\n\n  > Error: connect ECONNREFUSED 127.0.0.1:3000\n\nCommon situations why this would fail:\n  - you don't have internet access\n  - you forgot to run / boot your web server\n  - your web server isn't accessible\n  - you have weird network configuration settings on your computer",
+                "estack": "CypressError: `cy.visit()` failed trying to load:\n\nhttp://localhost:3000/\n\nWe attempted to make an http request to this URL but the request failed without a response.\n\nWe received this error at the network level:\n\n  > Error: connect ECONNREFUSED 127.0.0.1:3000\n\nCommon situations why this would fail:\n  - you don't have internet access\n  - you forgot to run / boot your web server\n  - your web server isn't accessible\n  - you have weird network configuration settings on your computer\n    at <unknown> (http://localhost:44977/__cypress/runner/cypress_runner.js:131065:74)\n    at visitFailedByErr (http://localhost:44977/__cypress/runner/cypress_runner.js:130463:12)\n    at <unknown> (http://localhost:44977/__cypress/runner/cypress_runner.js:131064:11)\n    at tryCatcher (http://localhost:44977/__cypress/runner/cypress_runner.js:1807:23)\n    at Promise._settlePromiseFromHandler (http://localhost:44977/__cypress/runner/cypress_runner.js:1519:31)\n    at Promise._settlePromise (http://localhost:44977/__cypress/runner/cypress_runner.js:1576:18)\n    at Promise._settlePromise0 (http://localhost:44977/__cypress/runner/cypress_runner.js:1621:10)\n    at Promise._settlePromises (http://localhost:44977/__cypress/runner/cypress_runner.js:1697:18)\n    at _drainQueueStep (http://localhost:44977/__cypress/runner/cypress_runner.js:2407:12)\n    at _drainQueue (http://localhost:44977/__cypress/runner/cypress_runner.js:2400:9)\n    at Async._drainQueues (http://localhost:44977/__cypress/runner/cypress_runner.js:2416:5)\n    at Async.drainQueues (http://localhost:44977/__cypress/runner/cypress_runner.js:2286:14)\nFrom Your Spec Code:\n    at Context.eval (webpack://pointsvilleapimanager/./cypress/e2e/test1.cy.js:10:7)\n\nFrom Node.js Internals:\n  Error: connect ECONNREFUSED 127.0.0.1:3000\n      at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1495:16)",
+                "diff": null
+              },
+              "uuid": "3849073a-9cca-4c1e-88ec-b76fcaccbdd4",
+              "parentUUID": "45eb3afa-c7fb-4118-afc9-b0704620ae82",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "3849073a-9cca-4c1e-88ec-b76fcaccbdd4"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 750,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.3.1"
+    },
+    "marge": {
+      "options": null,
+      "version": "5.2.0"
+    }
+  }
+}
