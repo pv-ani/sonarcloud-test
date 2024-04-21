@@ -38,7 +38,9 @@ jobs:
       run: npx cypress install
 
     - name: Cypress Run and Generate Report
-      run: npx cypress run --reporter mochawesome
+      run: | 
+        npx cypress run --reporter mochawesome
+        cp /home/runner/work/sonarcloud-test/sonarcloud-test/mochawesome-report/*.html /home/
       
     # - name: Cypress run
     #   uses: cypress-io/github-action@v6
@@ -59,4 +61,4 @@ jobs:
       if: always()
       with:
           github_token: ${{ secrets.GH_TOKEN }}
-          publish_dir: /home/runner/work/sonarcloud-test/sonarcloud-test/mochawesome-report/
+          publish_dir: /home
