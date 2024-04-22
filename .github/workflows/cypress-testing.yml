@@ -52,6 +52,7 @@ jobs:
     #     GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
     - name: Copy test execution videos and screenshots
+      continue-on-error: true
       run: |
         # mkdir public
         cp -r cypress/videos public/videos
