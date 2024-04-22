@@ -29,7 +29,7 @@
     "coverage:merge": "mkdir -p coverage/merged && istanbul-merge --output coverage/merged/coverage-final.json ./coverage/unit/coverage-final.json ./coverage/e2e/coverage-final.json",
     "coverage:merge-report": "nyc report --reporter=lcov --reporter=text --reporter=json --temp-dir=./coverage/merged --report-dir=./coverage/merged",
     "pre-commit": "npm run compareEnv && npm run prettierCheck && npm run lintCheck",
-    "combine:report": "mochawesome-merge ./mochawesome-report/*.json -o index.json",
+    "combine:report": "mochawesome-merge ./cypress/reports/html/.jsons/*.json -o index.json",
     "generate:report": "marge index.json --reportDir public --assetsDir public/assets --reportPageTitle index.html"
   },
   "nyc": {
