@@ -37,22 +37,31 @@ jobs:
     - name: Cypress Install
       run: npx cypress install
 
-    - name: Cypress Run and Generate Report
-      continue-on-error: true
-      run: | 
-        npx cypress run
+    # - name: Cypress Run and Generate Report
+    #   continue-on-error: true
+    #   run: | 
+    #     npx cypress run
       
-    # - name: Cypress run
-    #   uses: cypress-io/github-action@v6
-    #   with:
-    #       record: true
-    #   env:
-    #     # pass GitHub token to detect new build vs re-run build
-    #     GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+    - name: Cypress run
+      uses: cypress-io/github-action@v6
+      continue-on-error: true
+      env:
+        # pass GitHub token to detect new build vs re-run build
+        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
     - name: Copy test execution videos and screenshots
       continue-on-error: true
       run: |
+        cd /home/runner/work/sonarcloud-test/sonarcloud-test
+        ls 
+        cd cypress 
+        ls
+        cd reports
+        ls
+        cd html
+        ls
+        cd .jsons
+        ls
         # mkdir public
         cp -r cypress/videos public/videos
         cp -r cypress/screenshots public/screenshots
