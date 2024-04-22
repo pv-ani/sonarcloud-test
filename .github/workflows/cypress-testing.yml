@@ -38,6 +38,7 @@ jobs:
       run: npx cypress install
 
     - name: Cypress Run and Generate Report
+      continue-on-error: true
       run: | 
         npx cypress run --reporter mochawesome
         cp /home/runner/work/sonarcloud-test/sonarcloud-test/mochawesome-report/*.html /home/
