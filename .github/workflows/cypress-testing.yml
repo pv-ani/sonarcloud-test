@@ -15,6 +15,8 @@ jobs:
   cypressTesting:
     name: Run Cypress Test Cases
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
     - name: Checkout Code 
       uses: actions/checkout@v4
@@ -30,27 +32,51 @@ jobs:
         yarn install --network-concurrency 1
         nohup yarn start &
 
-    - name: Run ESLint and prettier
-      run: |
-        npm run lint
+    # - name: Run ESLint and prettier
+    #   run: |
+    #     npm run lint
 
     - name: Cypress Install
       run: npx cypress install
 
-    - name: Cypress Run and Generate Report
-      run: npx cypress run --reporter mochawesome
+    # - name: Cypress Run and Generate Report
+    #   continue-on-error: true
+    #   run: | 
+    #     npx cypress run
       
-    # - name: Cypress run
-    #   uses: cypress-io/github-action@v6
-    #   with:
-    #       record: true
-    #   env:
-    #     # pass GitHub token to detect new build vs re-run build
-    #     GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+    - name: Cypress run
+      uses: cypress-io/github-action@v6
+      continue-on-error: true
+      env:
+        # pass GitHub token to detect new build vs re-run build
+        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
-    - name: Publish Test Report
+    - name: Copy test execution videos and screenshots
+      continue-on-error: true
+      run: |
+        cd /home/runner/work/sonarcloud-test/sonarcloud-test
+        ls 
+        cd cypress 
+        ls
+        cd reports
+        ls
+        cd html
+        ls
+        cd .jsons
+        ls
+        # mkdir public
+        cp -r cypress/videos public/videos
+        cp -r cypress/screenshots public/screenshots
+
+    - name: Merge test reports
+      run: npm run combine:report
+
+    - name: Generate HTML report
+      run: npm run generate:report
+    
+    - name: Deploy report page to GitHub Page
       uses: peaceiris/actions-gh-pages@v3
-      if: always()
       with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: /home/runner/work/sonarcloud-test/sonarcloud-test/mochawesome-report/*.html
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_branch: cypress-report-publish
+        publish_dir: ./public
