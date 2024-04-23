@@ -16,7 +16,7 @@ on:
         - pv-tplus-beta
         - pv-tplus-prod
 env:
-  TIMESTAMP: $(TZ="Asia/Kolkata" date +"%Y-%m-%d %H:%M:%S")
+  TIMESTAMP: TZ="Asia/Kolkata" date +"%Y-%m-%d %H:%M:%S"
 
 jobs:
   cypressTesting:
@@ -85,7 +85,7 @@ jobs:
       with:
         webhook_url: ${{ secrets.DISCORD_WEBHOOK_URL }}
         colour: "#57F287"
-        title: Cypress test cases report is ublished...
+        title: Cypress test cases report is published...
         message: "**URL:** https://pv-ani.github.io/sonarcloud-test \n**Timestamp:** ${{ env.TIMESTAMP }}"
         include_image: true
         avatar_url: https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png
