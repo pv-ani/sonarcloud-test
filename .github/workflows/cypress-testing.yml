@@ -82,11 +82,11 @@ jobs:
       with:
         webhook_url: ${{ secrets.DISCORD_WEBHOOK_URL }}
         colour: "#57F287"
-        title: Cypress test Case Report
-        message: "**Cypress test report is published**\n**URL:** https://pv-ani.github.io/sonarcloud-test "
+        title: Cypress test cases report is ublished...
+        message: "**URL:** https://pv-ani.github.io/sonarcloud-test "
         include_image: true
         avatar_url: https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png
-        username: Cypress test Case Report
+        username: Cypress Test Cases Report
 
     # - name: Send Discord Notification
     #   env:
