@@ -69,7 +69,7 @@ jobs:
     - name: Send Discord Notification
       uses: Ilshidur/action-discord@master
       with:
-        webhook_url: ${{ secrets.DISCORD_WEBHOOK_URL }}
+        DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK_URL }}
         DISCORD_USERNAME: Cypress test Case Report
         DISCORD_EMBEDS: >
           {
