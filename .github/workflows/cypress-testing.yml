@@ -4,16 +4,6 @@ on:
   schedule:
       # * is a special character in YAML so you have to quote this string
       - cron:  '*/5 * * * *'
-  workflow_dispatch:
-    inputs:
-      environment:
-        type: choice
-        description: AWS Organization
-        default: 'Select AWS Organization'
-        options:
-        - Select Organization
-        - pv-tplus-beta
-        - pv-tplus-prod
 jobs:
   cypressTesting:
     name: Run Cypress Test Cases
