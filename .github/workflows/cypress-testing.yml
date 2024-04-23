@@ -15,6 +15,8 @@ on:
         - Select Organization
         - pv-tplus-beta
         - pv-tplus-prod
+env:
+  TIMESTAMP: $(TZ="Asia/Kolkata" date +"%Y-%m-%d %H:%M:%S")
 
 jobs:
   cypressTesting:
@@ -84,9 +86,7 @@ jobs:
         webhook_url: ${{ secrets.DISCORD_WEBHOOK_URL }}
         colour: "#57F287"
         title: Cypress test cases report is ublished...
-        message: |
-           **URL:** https://pv-ani.github.io/sonarcloud-test
-           **Timestamp:** `${{ github.event.created_at.format('%m/%d/%Y %I:%M %p') }}`
+        message: "**URL:** https://pv-ani.github.io/sonarcloud-test \n**Timestamp:** ${{ env.TIMESTAMP }}"
         include_image: true
         avatar_url: https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png
         username: Cypress Test Cases Report
