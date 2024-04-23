@@ -1,9 +1,20 @@
 name: Run Cypress Test Cases
 
+# on:
+#   schedule:
+#       # * is a special character in YAML so you have to quote this string
+#       - cron: "*/5 * * * *"
 on:
-  schedule:
-      # * is a special character in YAML so you have to quote this string
-      - cron: "*/5 * * * *"
+  workflow_dispatch:
+    inputs:
+      environment:
+        type: choice
+        description: AWS Organization
+        default: 'Select AWS Organization'
+        options:
+        - Select Organization
+        - pv-tplus-beta
+        - pv-tplus-prod
 jobs:
   cypressTesting:
     name: Run Cypress Test Cases
@@ -67,7 +78,6 @@ jobs:
         publish_dir: ./public
 
     - name: Send Discord Notification
-      uses: Ilshidur/action-discord@master
       env:
         DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK_URL }}
         DISCORD_USERNAME: Cypress test Case Report
@@ -86,5 +96,6 @@ jobs:
               }
             ]
           }
+      uses: Ilshidur/action-discord@master
       with:
         args: "Cypress test report is published: https://${{ github.repository }}/cypress-report-publish/"
