@@ -68,7 +68,7 @@ jobs:
 
     - name: Send Discord Notification
       uses: Ilshidur/action-discord@master
-      with:
+      env:
         DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK_URL }}
         DISCORD_USERNAME: Cypress test Case Report
         DISCORD_EMBEDS: >
@@ -86,4 +86,5 @@ jobs:
               }
             ]
           }
-        content: "Cypress test report is published: https://${{ github.repository }}/cypress-report-publish/"
+      with:
+        args: "Cypress test report is published: https://${{ github.repository }}/cypress-report-publish/"
