@@ -15,8 +15,7 @@ on:
         - Select Organization
         - pv-tplus-beta
         - pv-tplus-prod
-env:
-      TIMESTAMP: ${{ steps.set_timestamp.outputs.timestamp }}
+
 jobs:
   cypressTesting:
     name: Run Cypress Test Cases
