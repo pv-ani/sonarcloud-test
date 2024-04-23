@@ -86,7 +86,7 @@ jobs:
         title: Cypress test cases report is ublished...
         message: |
            **URL:** https://pv-ani.github.io/sonarcloud-test
-           **Timestamp:** ${{ github.event.created_at.format('%m/%d/%Y %I:%M %p') }}
+           **Timestamp:** `${{ github.event.created_at.format('%m/%d/%Y %I:%M %p') }}`
         include_image: true
         avatar_url: https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png
         username: Cypress Test Cases Report
