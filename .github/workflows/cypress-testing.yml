@@ -15,9 +15,6 @@ on:
         - Select Organization
         - pv-tplus-beta
         - pv-tplus-prod
-env:
-  TIMESTAMP: TZ="Asia/Kolkata" date +"%Y-%m-%d %H:%M:%S"
-
 jobs:
   cypressTesting:
     name: Run Cypress Test Cases
@@ -63,6 +60,7 @@ jobs:
     - name: Copy test execution videos and screenshots
       continue-on-error: true
       run: |
+        TIMESTAMP=$(TZ="Asia/Kolkata" date +"%Y-%m-%d %H:%M:%S")
         # mkdir public
         cp -r cypress/videos public/videos
         cp -r cypress/screenshots public/screenshots
@@ -80,13 +78,13 @@ jobs:
         publish_branch: cypress-report-publish
         publish_dir: ./public
 
-    - name: Send Discord notification
+    - name: Send Discord notification        
       uses: stegzilla/discord-notify@v2
       with:
         webhook_url: ${{ secrets.DISCORD_WEBHOOK_URL }}
         colour: "#57F287"
         title: Cypress test cases report is published...
-        message: "**URL:** https://pv-ani.github.io/sonarcloud-test \n**Timestamp:** ${{ env.TIMESTAMP }}"
+        message: "**URL:** https://pv-ani.github.io/sonarcloud-test \n**Timestamp:** $TIMESTAMP"
         include_image: true
         avatar_url: https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png
         username: Cypress Test Cases Report
