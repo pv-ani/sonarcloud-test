@@ -1,6 +1,9 @@
 name: Run Cypress Test Cases
 
 on:
+  schedule:
+      # * is a special character in YAML so you have to quote this string
+      - cron:  '55 6 * * *'
   workflow_dispatch:
     inputs:
       environment:
@@ -20,6 +23,8 @@ jobs:
     steps:
     - name: Checkout Code 
       uses: actions/checkout@v4
+      with:
+        ref: test
 
     - name: Set node version
       uses: actions/setup-node@v3
