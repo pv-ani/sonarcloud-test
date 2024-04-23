@@ -15,6 +15,8 @@ on:
         - Select Organization
         - pv-tplus-beta
         - pv-tplus-prod
+env:
+      TIMESTAMP: ${{ steps.set_timestamp.outputs.timestamp }}
 jobs:
   cypressTesting:
     name: Run Cypress Test Cases
@@ -84,7 +86,7 @@ jobs:
         webhook_url: ${{ secrets.DISCORD_WEBHOOK_URL }}
         colour: "#57F287"
         title: Cypress test cases report is published...
-        message: "**URL:** https://pv-ani.github.io/sonarcloud-test \n**Timestamp:** ${{ $TIMESTAMP }}"
+        message: "**URL:** https://pv-ani.github.io/sonarcloud-test \n**Timestamp:** ${{ steps.set_timestamp.outputs.timestamp }}"
         include_image: true
         avatar_url: https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png
         username: Cypress Test Cases Report
