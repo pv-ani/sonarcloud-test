@@ -3,7 +3,7 @@ name: Run Cypress Test Cases
 on:
   schedule:
       # * is a special character in YAML so you have to quote this string
-      - cron:  '58 6 * * *'
+      - cron:  '*/5 * * * *'
   workflow_dispatch:
     inputs:
       environment:
