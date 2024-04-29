@@ -30,7 +30,7 @@
     "coverage:merge-report": "nyc report --reporter=lcov --reporter=text --reporter=json --temp-dir=./coverage/merged --report-dir=./coverage/merged",
     "pre-commit": "npm run compareEnv && npm run prettierCheck && npm run lintCheck",
     "combine:report": "mochawesome-merge ./cypress/reports/html/.jsons/*.json -o index.json",
-    "generate:report": "marge index.json --reportDir public/$BUILD_NUMBER --assetsDir public/assets --reportPageTitle index.html"
+    "generate:report": "marge index.json --reportDir public --assetsDir public/assets --reportPageTitle index.html"
   },
   "nyc": {
     "reporter": [
