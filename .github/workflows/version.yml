@@ -3,8 +3,8 @@ name: version test
 on:
   push:
     branches:
-    - main
-    - test
+    # - main
+    # - test
 
 jobs: 
     upload-release:
